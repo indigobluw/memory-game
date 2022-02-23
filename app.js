@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'Pig.png'
         }
     ]
-})
+
 
 const grid = document.querySelector('.grid')
 
@@ -65,3 +65,5 @@ function createBoard() {
 }
 
 createBoard()
+
+})
