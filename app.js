@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    //card options
     const cardArray = [
         {
             name: 'Chicken', 
@@ -50,60 +50,67 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'Pig.png'
         }
     ]
-
-    cardArray.sort(() => 0.5 - Math.random()) //refreshes the cards position after a won/restarted game
-
-
-const grid = document.querySelector('.grid')
-const resultDisplay = document.querySelector('#result')
-//empty arrays
-var cardsChosen = []
-var cardsChosenId = []
-var cardsWon = []
-
-function createBoard() { 
-    for (let i = 0; i < cardArray.length; i++) { 
-        var card = document.createElement('img')
+  
+    cardArray.sort(() => 0.5 - Math.random())
+  
+    const grid = document.querySelector('.grid')
+    const resultDisplay = document.querySelector('#result')
+    let cardsChosen = []
+    let cardsChosenId = []
+    let cardsWon = []
+  
+    //create your board
+    function createBoard() {
+      for (let i = 0; i < cardArray.length; i++) {
+        const card = document.createElement('img')
         card.setAttribute('src', 'images/BackofCard1.png')
         card.setAttribute('data-id', i)
-        card.addEventListener('click', flipcard)
+        card.addEventListener('click', flipCard)
         grid.appendChild(card)
+      }
     }
-}
-
-function checkForMatch(){
-    var cards = document.querySelectorAll('img')
-    const optionOneId = cardsChosenId[0]
-    const optionTwoId = cardsChosenId[1]
-    if(cardsChosen[0] === cardsChosen[1]) { //if there's a match in cards
-        alert('Cards match!')
-        cards[optionOneId].setAttribute('src', 'Blank1.png')
-        cards[optionTwoId].setAttribute('src', 'Blank1.png')
+  
+    //check for matches
+    function checkForMatch() {
+      const cards = document.querySelectorAll('img')
+      const optionOneId = cardsChosenId[0]
+      const optionTwoId = cardsChosenId[1]
+      
+      if(optionOneId == optionTwoId) {
+        cards[optionOneId].setAttribute('src', 'images/BackofCard1.png')
+        cards[optionTwoId].setAttribute('src', 'images/BackofCard1.png')
+        alert('You have clicked the same image!')
+      }
+      else if (cardsChosen[0] === cardsChosen[1]) {
+        alert('You found a match')
+        cards[optionOneId].setAttribute('src', 'images/Blank1.png')
+        cards[optionTwoId].setAttribute('src', 'images/Blank1.png')
+        cards[optionOneId].removeEventListener('click', flipCard)
+        cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardsChosen)
+      } else {
+        cards[optionOneId].setAttribute('src', 'images/BackofCard1.png')
+        cards[optionTwoId].setAttribute('src', 'images/BackofCard1.png')
+        alert('Sorry, try again')
+      }
+      cardsChosen = []
+      cardsChosenId = []
+      resultDisplay.textContent = cardsWon.length
+      if  (cardsWon.length === cardArray.length/2) {
+        resultDisplay.textContent = 'Congratulations! You found them all!'
+      }
     }
-    else { //if there's not a match
-        cards[optionOneId].setAttribute('src', 'BackofCard1.png') //flip the card
-        cards[optionTwoId].setAttribute('src', 'BackofCard1.png')
-        alert ('No match, try again')
+  
+    //flip your card
+    function flipCard() {
+      let cardId = this.getAttribute('data-id')
+      cardsChosen.push(cardArray[cardId].name)
+      cardsChosenId.push(cardId)
+      this.setAttribute('src', cardArray[cardId].img)
+      if (cardsChosen.length ===2) {
+        setTimeout(checkForMatch, 500)
+      }
     }
-    //either way of the two choices happening I want this to happen 
-    cardsChosen = []
-    cardsChosenId = []
-    resultDisplay.textContent = cardsWon.length
-    if (cardsWon.length === cardArray.length/2) { //collected all possible cards in the cardsarray
-        resultDisplay.textContent = 'Congrats, you won!'
-    }
-}
-
-function flipcard(){ 
-    var cardId = this.getAttrribute('data-id')
-    cardsChosen.push(cardArray[cardId].name)
-    cardsChosenId.push(cardId)
-    this.setAttribute('src', cardArray[cardId].img)
-    if (cardsChosen.length === 2) //if two cards are picked
-    setTimeout(checkForMatch, 500) //timeout, 500ms
-}
-
-createBoard()
-
-})
+  
+    createBoard()
+  })
