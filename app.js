@@ -1,55 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-    //card options
+  //card options
     const cardArray = [
         {
             name: 'Chicken', 
-            img: 'Chicken.png'
+            img: './images/Chicken.png'
         },
         {
             name: 'Chicken', 
-            img: 'Chicken.png'
+            img: './images/Chicken.png'
         },
         {
             name: 'Dog', 
-            img: 'Dog.png'
+            img: './images/Dog.png'
         },
         {
             name: 'Dog', 
-            img: 'Dog.png'
+            img: './images/Dog.png'
         },
         {
             name: 'Fox', 
-            img: 'Fox.png'
+            img: './images/Fox.png'
         },
         {
             name: 'Fox', 
-            img: 'Fox.png'
+            img: './images/Fox.png'
         },
         {
             name: 'Panda1', 
-            img: 'Panda1.png'
+            img: './images/Panda1.png'
         },
         {
             name: 'Panda1', 
-            img: 'Panda1.png'
+            img: './images/Panda1.png'
         },
         {
             name: 'Penguin', 
-            img: 'Penguin.png'
+            img: './images/Penguin.png'
         },
         {
             name: 'Penguin', 
-            img: 'Penguin.png'
+            img: './images/Penguin.png'
         },
         {
             name: 'Pig', 
-            img: 'Pig.png'
+            img: './images/Pig.png'
         }, 
         {
             name: 'Pig', 
-            img: 'Pig.png'
+            img: './images/Pig.png'
         }
     ]
+
+    //var cardArray = require('./data.json');
   
     cardArray.sort(() => 0.5 - Math.random())
   
@@ -79,10 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if(optionOneId == optionTwoId) {
         cards[optionOneId].setAttribute('src', 'images/BackofCard1.png')
         cards[optionTwoId].setAttribute('src', 'images/BackofCard1.png')
-        alert('You have clicked the same image!')
+        alert('You have selected the same image, try again')
       }
       else if (cardsChosen[0] === cardsChosen[1]) {
-        alert('You found a match')
+        alert('Match!')
         cards[optionOneId].setAttribute('src', 'images/Blank1.png')
         cards[optionTwoId].setAttribute('src', 'images/Blank1.png')
         cards[optionOneId].removeEventListener('click', flipCard)
@@ -91,17 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         cards[optionOneId].setAttribute('src', 'images/BackofCard1.png')
         cards[optionTwoId].setAttribute('src', 'images/BackofCard1.png')
-        alert('Sorry, try again')
+        //alert('No match')
       }
       cardsChosen = []
       cardsChosenId = []
       resultDisplay.textContent = cardsWon.length
+
       if  (cardsWon.length === cardArray.length/2) {
-        resultDisplay.textContent = 'Congratulations! You found them all!'
+        resultDisplay.textContent = 'You won'
       }
     }
-  
-    //flip your card
     function flipCard() {
       let cardId = this.getAttribute('data-id')
       cardsChosen.push(cardArray[cardId].name)

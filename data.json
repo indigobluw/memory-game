@@ -1,0 +1,54 @@
+{ 
+    "title": "Korten",
+    "kort":
+[
+    {
+        "name": "Dog",
+        "img": "https://dthezntil550i.cloudfront.net/uy/latest/uy1801120116460000003385442/81d9d23b-4213-4f6d-ba87-cfe87f3d293a.jpg"
+    },
+    {
+        "name": "Dog",
+        "img": "https://dthezntil550i.cloudfront.net/uy/latest/uy1801120116460000003385442/81d9d23b-4213-4f6d-ba87-cfe87f3d293a.jpg"
+    },
+    {
+        "name": "Cat",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG-knchqIY6PIJkK6JK4LP99grWqlkviWTRQ&usqp=CAU"
+    },
+    {
+        "name": "Cat",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG-knchqIY6PIJkK6JK4LP99grWqlkviWTRQ&usqp=CAU"
+    },
+    {
+        "name": "Bunny",
+        "img": "https://preview.redd.it/hvi7p8rs4me81.gif?format=png8&s=f9e29bfa502f845d45b406cf3ea1bb6e16283a1b"
+    },
+    {
+        "name": "Bunny",
+        "img": "https://preview.redd.it/hvi7p8rs4me81.gif?format=png8&s=f9e29bfa502f845d45b406cf3ea1bb6e16283a1b"
+    },
+    {
+        "name": "Fish",
+        "img": "https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/f1/2e/01/f12e0188-f52e-df83-333b-01522e414303/source/256x256bb.jpg"
+    },
+    {
+        "name": "Fish",
+        "img": "https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/f1/2e/01/f12e0188-f52e-df83-333b-01522e414303/source/256x256bb.jpg"
+    },
+    {
+        "name": "Cow",
+        "img": "https://preview.redd.it/z13oyofy66b61.png?auto=webp&s=3bfc64e782c25c4bd68e3e0cccb5fbeabb7e668d"
+    },
+    {
+        "name": "Cow",
+        "img": "https://preview.redd.it/z13oyofy66b61.png?auto=webp&s=3bfc64e782c25c4bd68e3e0cccb5fbeabb7e668d"
+    },
+    {
+        "name": "Bird", 
+        "img": "https://cdn130.picsart.com/256882289013202.jpg?type=webp&to=crop&r=256"
+    }, 
+    {
+        "name": "Bird", 
+        "img": "https://cdn130.picsart.com/256882289013202.jpg?type=webp&to=crop&r=256"
+    }
+]
+}
